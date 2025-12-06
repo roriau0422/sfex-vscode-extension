@@ -57,7 +57,11 @@ Story:
 
 ## Release Notes
 
+<<<<<<< HEAD
 ### 0.3.2
+=======
+### 0.3.4
+>>>>>>> 577d2017e957e28e79fba7ce75597bef8be1e216
 - Updated for SFX v0.3.2
 - File extension changed from .mon to .sfex
 - Enhanced syntax highlighting
@@ -69,4 +73,8 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## License
 
+<<<<<<< HEAD
 MIT License - see LICENSE file for details
+=======
+Apache 2.0 License - see LICENSE file for details
+>>>>>>> 577d2017e957e28e79fba7ce75597bef8be1e216
