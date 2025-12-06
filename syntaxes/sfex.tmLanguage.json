@@ -197,7 +197,7 @@
           "match": "(==|!=|<=|>=|<|>)"
         },
         {
-          "name": "keyword.operator.logical.sfex",
+          "name": "keyword.control.logical.sfex",
           "match": "\\b(and|or|not)\\b"
         },
         {
@@ -205,7 +205,7 @@
           "match": "(\\+|\\-|\\*|\\/|%)"
         },
         {
-          "name": "keyword.operator.assignment.sfex",
+          "name": "keyword.control.assignment.sfex",
           "match": "\\b(is|to)\\b"
         }
       ]
