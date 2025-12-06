@@ -6,11 +6,13 @@
     { "include": "#comments" },
     { "include": "#strings" },
     { "include": "#keywords" },
-    { "include": "#concepts" },
+    { "include": "#builtins" },
+    { "include": "#stdlib" },
+    { "include": "#types" },
+    { "include": "#constants" },
     { "include": "#numbers" },
     { "include": "#operators" },
-    { "include": "#functions" },
-    { "include": "#constants" }
+    { "include": "#identifiers" }
   ],
   "repository": {
     "comments": {
@@ -30,7 +32,11 @@
           "patterns": [
             {
               "name": "constant.character.escape.sfex",
-              "match": "\\\\."
+              "match": "\\\\(n|t|r|\\\\|\")"
+            },
+            {
+              "name": "constant.other.placeholder.sfex",
+              "match": "\\{[a-zA-Z_][a-zA-Z0-9_]*\\}"
             }
           ]
         },
@@ -42,6 +48,21 @@
             {
               "name": "constant.character.escape.sfex",
               "match": "\\\\(n|t|r|\\\\|\")"
+            },
+            {
+              "name": "constant.other.placeholder.sfex",
+              "match": "\\{[a-zA-Z_][a-zA-Z0-9_]*\\}"
+            }
+          ]
+        },
+        {
+          "name": "string.quoted.single.sfex",
+          "begin": "'",
+          "end": "'",
+          "patterns": [
+            {
+              "name": "constant.character.escape.sfex",
+              "match": "\\\\(n|t|r|\\\\|')"
             }
           ]
         }
@@ -50,33 +71,110 @@
     "keywords": {
       "patterns": [
         {
-          "name": "keyword.control.sfex",
-          "match": "\\b(If|Otherwise|When|Repeat|For|each|in|Break|Continue|Return|Try|Catch|Switch|on|off)\\b"
+          "name": "keyword.control.flow.sfex",
+          "match": "\\b(If|Else|ElseIf|When|Otherwise|Repeat|While|For|Each|In|Times|Break|Continue|Return)\\b"
+        },
+        {
+          "name": "keyword.control.exception.sfex",
+          "match": "\\b(Try|Catch|Always)\\b"
+        },
+        {
+          "name": "keyword.control.context.sfex",
+          "match": "\\b(Switch)\\s+(on|off)\\b"
         },
         {
           "name": "keyword.other.sfex",
-          "match": "\\b(Concept|Situation|Story|Adjustment|Create|Called|Set|to|Print|Do|with|is|as|of)\\b"
+          "match": "\\b(Story|Concept|Situation|Adjustment|Adjust)\\b"
         },
         {
-          "name": "storage.type.sfex",
-          "match": "\\b(Number|String|Boolean|List|Map|Vector|Option|FastNumber|WeakRef)\\b"
+          "name": "keyword.other.method.sfex",
+          "match": "\\b(To|With|And)\\b"
+        },
+        {
+          "name": "keyword.other.special.sfex",
+          "match": "\\b(Use|Create|Called|Set|Print|Do|Background|Proceed|changes)\\b"
         }
       ]
     },
-    "concepts": {
+    "types": {
       "patterns": [
         {
-          "name": "entity.name.type.sfex",
+          "name": "support.type.primitive.sfex",
+          "match": "\\b(Number|FastNumber|String|Boolean)\\b"
+        },
+        {
+          "name": "support.type.collection.sfex",
+          "match": "\\b(List|Map|Vector)\\b"
+        },
+        {
+          "name": "support.type.advanced.sfex",
+          "match": "\\b(Option|WeakRef|WeakList|WeakMap|TaskHandle|Error)\\b"
+        },
+        {
+          "name": "entity.name.type.class.sfex",
           "match": "\\b(Concept|Situation):\\s+([A-Z][a-zA-Z0-9_]*)",
           "captures": {
             "2": {
-              "name": "entity.name.type.class.sfex"
+              "name": "entity.name.type.sfex"
+            }
+          }
+        }
+      ]
+    },
+    "stdlib": {
+      "patterns": [
+        {
+          "name": "support.class.stdlib.sfex",
+          "match": "\\b(Data|File|HTTP|WebSocket|TCP|UDP|Env|System|Time|Math|LLM|JSON|XML|HTML|CSV|TOML|Channel|Task|Error|Stream)\\b(?=\\.)"
+        },
+        {
+          "name": "support.function.stdlib.sfex",
+          "match": "\\b(Data|File|HTTP|WebSocket|TCP|UDP|Env|System|Time|Math|LLM|JSON|XML|HTML|CSV|TOML|Channel|Task|Error|Stream)\\.([A-Z][a-zA-Z0-9_]*)\\b",
+          "captures": {
+            "1": {
+              "name": "support.class.stdlib.sfex"
+            },
+            "2": {
+              "name": "entity.name.function.sfex"
+            }
+          }
+        }
+      ]
+    },
+    "builtins": {
+      "patterns": [
+        {
+          "name": "support.function.builtin.sfex",
+          "match": "\\b(Print|Set|Create|Switch|Use|WeakRef|FastNumber|Some|None)\\b"
+        },
+        {
+          "name": "variable.language.this.sfex",
+          "match": "\\bThis\\b"
+        },
+        {
+          "name": "variable.other.property.sfex",
+          "match": "\\bThis\\.([a-zA-Z_][a-zA-Z0-9_]*)\\b",
+          "captures": {
+            "1": {
+              "name": "variable.other.member.sfex"
             }
           }
         },
         {
-          "name": "variable.other.property.sfex",
-          "match": "\\bThis\\."
+          "name": "support.variable.property.sfex",
+          "match": "\\.(Length|Size|IsValid|IsSome|IsNone)\\b"
+        }
+      ]
+    },
+    "constants": {
+      "patterns": [
+        {
+          "name": "constant.language.boolean.sfex",
+          "match": "\\b(True|False)\\b"
+        },
+        {
+          "name": "constant.language.option.sfex",
+          "match": "\\b(Some|None)\\b"
         }
       ]
     },
@@ -108,35 +206,43 @@
         },
         {
           "name": "keyword.operator.assignment.sfex",
-          "match": "\\bis\\b"
+          "match": "\\b(is|to)\\b"
         }
       ]
     },
-    "functions": {
+    "identifiers": {
       "patterns": [
         {
-          "name": "entity.name.function.sfex",
+          "name": "entity.name.function.method.sfex",
           "match": "\\b([A-Z][a-zA-Z0-9_]*)\\.([A-Z][a-zA-Z0-9_]*)\\b",
           "captures": {
             "1": {
-              "name": "support.class.sfex"
+              "name": "variable.other.object.sfex"
             },
             "2": {
               "name": "entity.name.function.sfex"
             }
           }
-        }
-      ]
-    },
-    "constants": {
-      "patterns": [
-        {
-          "name": "constant.language.sfex",
-          "match": "\\b(True|False|None|Some)\\b"
         },
         {
-          "name": "variable.language.sfex",
-          "match": "\\bThis\\b"
+          "name": "variable.other.property.sfex",
+          "match": "\\b([a-zA-Z_][a-zA-Z0-9_]*)\\.([a-zA-Z_][a-zA-Z0-9_]*)\\b",
+          "captures": {
+            "1": {
+              "name": "variable.other.object.sfex"
+            },
+            "2": {
+              "name": "variable.other.member.sfex"
+            }
+          }
+        },
+        {
+          "name": "entity.name.type.class.sfex",
+          "match": "\\b[A-Z][a-zA-Z0-9_]*\\b"
+        },
+        {
+          "name": "variable.other.sfex",
+          "match": "\\b[a-z_][a-zA-Z0-9_]*\\b"
         }
       ]
     }

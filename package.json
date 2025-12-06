@@ -34,7 +34,11 @@
         "extensions": [
           ".sfex"
         ],
-        "configuration": "./syntaxes/language-configuration.json"
+        "configuration": "./syntaxes/language-configuration.json",
+        "icon": {
+          "light": "./icon.png",
+          "dark": "./icon.png"
+        }
       }
     ],
     "grammars": [
@@ -42,6 +46,12 @@
         "language": "sfex",
         "scopeName": "source.sfex",
         "path": "./syntaxes/sfex.tmLanguage.json"
+      }
+    ],
+    "snippets": [
+      {
+        "language": "sfex",
+        "path": "./snippets/sfex.json"
       }
     ]
   }

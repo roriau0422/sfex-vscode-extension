@@ -1,0 +1,180 @@
+{
+  "Story": {
+    "prefix": "story",
+    "body": [
+      "Story:",
+      "\t$0"
+    ],
+    "description": "Create a Story (main program)"
+  },
+  "Concept": {
+    "prefix": "concept",
+    "body": [
+      "Concept: ${1:Name}",
+      "\t${2:Field}",
+      "\t",
+      "\tTo ${3:MethodName}:",
+      "\t\t$0"
+    ],
+    "description": "Define a Concept (class)"
+  },
+  "Situation": {
+    "prefix": "situation",
+    "body": [
+      "Situation: ${1:Name}",
+      "\tAdjust ${2:Concept}:",
+      "\t\tTo ${3:Method}:",
+      "\t\t\t$0"
+    ],
+    "description": "Define a Situation (context)"
+  },
+  "When Observer": {
+    "prefix": "whenchanges",
+    "body": [
+      "When ${1:Property} changes:",
+      "\t$0"
+    ],
+    "description": "Create a reactive When observer"
+  },
+  "Create Instance": {
+    "prefix": "create",
+    "body": [
+      "Create ${1:Concept} Called ${2:Instance}"
+    ],
+    "description": "Create an instance of a Concept"
+  },
+  "Set Property": {
+    "prefix": "set",
+    "body": [
+      "Set ${1:Object}.${2:Property} to ${3:Value}"
+    ],
+    "description": "Set a property value"
+  },
+  "If Statement": {
+    "prefix": "if",
+    "body": [
+      "If ${1:condition}:",
+      "\t$0"
+    ],
+    "description": "If conditional statement"
+  },
+  "If-Else Statement": {
+    "prefix": "ifelse",
+    "body": [
+      "If ${1:condition}:",
+      "\t${2}",
+      "Else:",
+      "\t$0"
+    ],
+    "description": "If-Else conditional statement"
+  },
+  "When Pattern Match": {
+    "prefix": "when",
+    "body": [
+      "When ${1:value}:",
+      "\tis ${2:match}:",
+      "\t\t${3}",
+      "\tOtherwise:",
+      "\t\t$0"
+    ],
+    "description": "When pattern matching"
+  },
+  "For Loop": {
+    "prefix": "for",
+    "body": [
+      "For each ${1:Item} in ${2:List}:",
+      "\t$0"
+    ],
+    "description": "For-each loop"
+  },
+  "Repeat Times": {
+    "prefix": "repeat",
+    "body": [
+      "Repeat ${1:10} times:",
+      "\t$0"
+    ],
+    "description": "Repeat N times loop"
+  },
+  "Repeat While": {
+    "prefix": "repeatwhile",
+    "body": [
+      "Repeat while ${1:condition}:",
+      "\t$0"
+    ],
+    "description": "Repeat while loop"
+  },
+  "Try-Catch": {
+    "prefix": "try",
+    "body": [
+      "Try:",
+      "\t${1}",
+      "Catch ${2:Error}:",
+      "\t$0"
+    ],
+    "description": "Try-Catch error handling"
+  },
+  "Method": {
+    "prefix": "method",
+    "body": [
+      "To ${1:MethodName} with ${2:Parameter}:",
+      "\t$0"
+    ],
+    "description": "Define a method"
+  },
+  "Print": {
+    "prefix": "print",
+    "body": [
+      "Print ${1:value}"
+    ],
+    "description": "Print statement"
+  },
+  "Switch Context On": {
+    "prefix": "switchon",
+    "body": [
+      "Switch on ${1:Situation}"
+    ],
+    "description": "Switch on a Situation context"
+  },
+  "Switch Context Off": {
+    "prefix": "switchoff",
+    "body": [
+      "Switch off ${1:Situation}"
+    ],
+    "description": "Switch off a Situation context"
+  },
+  "HTTP Get": {
+    "prefix": "httpget",
+    "body": [
+      "${1:Response} is HTTP.Get(${2:url})"
+    ],
+    "description": "HTTP GET request"
+  },
+  "File Read": {
+    "prefix": "fileread",
+    "body": [
+      "${1:Content} is File.Read(${2:path})"
+    ],
+    "description": "Read file"
+  },
+  "JSON Parse": {
+    "prefix": "jsonparse",
+    "body": [
+      "${1:Data} is JSON.Parse(${2:json_string})"
+    ],
+    "description": "Parse JSON"
+  },
+  "LLM Simple": {
+    "prefix": "llm",
+    "body": [
+      "${1:Response} is LLM.Simple(${2:prompt})"
+    ],
+    "description": "Simple LLM call"
+  },
+  "Task Spawn": {
+    "prefix": "task",
+    "body": [
+      "${1:Handle} is Task.Spawn(${2:function})"
+    ],
+    "description": "Spawn concurrent task"
+  }
+}
