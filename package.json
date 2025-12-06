@@ -1,9 +1,9 @@
 {
   "name": "sfex-lang",
-  "displayName": "SFX Language Support",
+  "displayName": "SFX - Situation Framework eXchange code support",
   "description": "Language support for SFX (Situation Framework eXchange) - a beginner-friendly programming language",
-  "version": "0.3.2",
-  "publisher": "sfex-lang",
+  "version": "0.3.4",
+  "publisher": "Roriau",
   "icon": "icon.png",
   "engines": {
     "vscode": "^1.80.0"
@@ -20,7 +20,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/sfex-vscode-extension"
+    "url": "https://github.com/roriau0422/sfex-vscode-extension"
   },
   "license": "MIT",
   "contributes": {

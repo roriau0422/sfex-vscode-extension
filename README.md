@@ -27,7 +27,7 @@ SFX is designed to be beginner-friendly with:
 - **Mathematical honesty**: `0.1 + 0.2 = 0.3` (arbitrary precision)
 - **1-based indexing**: `List[1]` is the first item
 - **No null pointers**: Safe defaults (0, "", False, [])
-- **Narrative syntax**: `Name is "Temka"` instead of `name = "Temka"`
+- **Narrative syntax**: `Name is "John"` instead of `name = "John"`
 - **Context-oriented**: Situations modify object behavior at runtime
 - **Reactive programming**: Self-healing data with automatic property observers
 
@@ -51,9 +51,9 @@ Story:
 
 ## Links
 
-- [SFX Repository](https://github.com/yourusername/sfex-lang)
-- [Documentation](https://github.com/yourusername/sfex-lang/blob/main/README.md)
-- [Report Issues](https://github.com/yourusername/sfex-vscode-extension/issues)
+- [SFX Repository](https://github.com/roriau0422/sfex-lang)
+- [Documentation](https://github.com/roriau0422/sfex-lang/blob/main/README.md)
+- [Report Issues](https://github.com/roriau0422/sfex-vscode-extension/issues)
 
 ## Release Notes
 
