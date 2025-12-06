@@ -1,0 +1,144 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "SFX",
+  "scopeName": "source.sfex",
+  "patterns": [
+    { "include": "#comments" },
+    { "include": "#strings" },
+    { "include": "#keywords" },
+    { "include": "#concepts" },
+    { "include": "#numbers" },
+    { "include": "#operators" },
+    { "include": "#functions" },
+    { "include": "#constants" }
+  ],
+  "repository": {
+    "comments": {
+      "patterns": [
+        {
+          "name": "comment.line.number-sign.sfex",
+          "match": "#.*$"
+        }
+      ]
+    },
+    "strings": {
+      "patterns": [
+        {
+          "name": "string.quoted.triple.sfex",
+          "begin": "\"\"\"",
+          "end": "\"\"\"",
+          "patterns": [
+            {
+              "name": "constant.character.escape.sfex",
+              "match": "\\\\."
+            }
+          ]
+        },
+        {
+          "name": "string.quoted.double.sfex",
+          "begin": "\"",
+          "end": "\"",
+          "patterns": [
+            {
+              "name": "constant.character.escape.sfex",
+              "match": "\\\\(n|t|r|\\\\|\")"
+            }
+          ]
+        }
+      ]
+    },
+    "keywords": {
+      "patterns": [
+        {
+          "name": "keyword.control.sfex",
+          "match": "\\b(If|Otherwise|When|Repeat|For|each|in|Break|Continue|Return|Try|Catch|Switch|on|off)\\b"
+        },
+        {
+          "name": "keyword.other.sfex",
+          "match": "\\b(Concept|Situation|Story|Adjustment|Create|Called|Set|to|Print|Do|with|is|as|of)\\b"
+        },
+        {
+          "name": "storage.type.sfex",
+          "match": "\\b(Number|String|Boolean|List|Map|Vector|Option|FastNumber|WeakRef)\\b"
+        }
+      ]
+    },
+    "concepts": {
+      "patterns": [
+        {
+          "name": "entity.name.type.sfex",
+          "match": "\\b(Concept|Situation):\\s+([A-Z][a-zA-Z0-9_]*)",
+          "captures": {
+            "2": {
+              "name": "entity.name.type.class.sfex"
+            }
+          }
+        },
+        {
+          "name": "variable.other.property.sfex",
+          "match": "\\bThis\\."
+        }
+      ]
+    },
+    "numbers": {
+      "patterns": [
+        {
+          "name": "constant.numeric.float.sfex",
+          "match": "\\b\\d+\\.\\d+\\b"
+        },
+        {
+          "name": "constant.numeric.integer.sfex",
+          "match": "\\b\\d+\\b"
+        }
+      ]
+    },
+    "operators": {
+      "patterns": [
+        {
+          "name": "keyword.operator.comparison.sfex",
+          "match": "(==|!=|<=|>=|<|>)"
+        },
+        {
+          "name": "keyword.operator.logical.sfex",
+          "match": "\\b(and|or|not)\\b"
+        },
+        {
+          "name": "keyword.operator.arithmetic.sfex",
+          "match": "(\\+|\\-|\\*|\\/|%)"
+        },
+        {
+          "name": "keyword.operator.assignment.sfex",
+          "match": "\\bis\\b"
+        }
+      ]
+    },
+    "functions": {
+      "patterns": [
+        {
+          "name": "entity.name.function.sfex",
+          "match": "\\b([A-Z][a-zA-Z0-9_]*)\\.([A-Z][a-zA-Z0-9_]*)\\b",
+          "captures": {
+            "1": {
+              "name": "support.class.sfex"
+            },
+            "2": {
+              "name": "entity.name.function.sfex"
+            }
+          }
+        }
+      ]
+    },
+    "constants": {
+      "patterns": [
+        {
+          "name": "constant.language.sfex",
+          "match": "\\b(True|False|None|Some)\\b"
+        },
+        {
+          "name": "variable.language.sfex",
+          "match": "\\bThis\\b"
+        }
+      ]
+    }
+  }
+}

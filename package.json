@@ -1,0 +1,48 @@
+{
+  "name": "sfex-lang",
+  "displayName": "SFX Language Support",
+  "description": "Language support for SFX (Situation Framework eXchange) - a beginner-friendly programming language",
+  "version": "0.3.2",
+  "publisher": "sfex-lang",
+  "icon": "icon.png",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "keywords": [
+    "sfx",
+    "sfex",
+    "situation",
+    "framework",
+    "beginner"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/sfex-vscode-extension"
+  },
+  "license": "MIT",
+  "contributes": {
+    "languages": [
+      {
+        "id": "sfex",
+        "aliases": [
+          "SFX",
+          "sfex"
+        ],
+        "extensions": [
+          ".sfex"
+        ],
+        "configuration": "./syntaxes/language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "sfex",
+        "scopeName": "source.sfex",
+        "path": "./syntaxes/sfex.tmLanguage.json"
+      }
+    ]
+  }
+}
